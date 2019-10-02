@@ -12,6 +12,15 @@ var buttonModalCheckout = cartForm.querySelector(".button-modal-checkout");
 var popupMap = document.querySelector(".popup-map");
 var buttonPopupMap = document.querySelector(".button-map");
 var close_map = popupMap.querySelector(".button-map-close");
+var slides = document.querySelectorAll(".promo-slide");
+var indicators = document.querySelectorAll(".indicator");
+var currentIndicator = 0;
+var currentSlide = 0;
+var slideInterval = setInterval(nextSlide, 3000);
+var slidesService = document.querySelectorAll(".services-content");
+var buttonsService = document.querySelectorAll(".services-button .button");
+var currentSlideService = 0;
+var currentButtonService = 0;
 
 console.log(buttonBuy.length);
 
@@ -58,3 +67,18 @@ buttonPopupMap.addEventListener("click", function(evt) {
 close_map.addEventListener("click", function(){
     popupMap.classList.add("hide");
 });
+
+function nextSlide() {
+    slides[currentSlide].classList.add("hide");
+    indicators[currentIndicator].classList.remove("indicator-current");
+    slidesService[currentSlideService].classList.add("hide");
+    buttonsService[currentButtonService].classList.remove("button-services-current");
+    currentSlide = (currentSlide+1) % slides.length;
+    currentIndicator = (currentIndicator+1) % indicators.length;
+    currentSlideService = (currentSlideService + 1) % slidesService.length;
+    currentButtonService = (currentButtonService + 1) % buttonsService.length;
+    slides[currentSlide].classList.remove("hide");
+    indicators[currentIndicator].classList.add("indicator-current");
+    slidesService[currentSlideService].classList.remove("hide");
+    buttonsService[currentButtonService].classList.add("button-services-current");
+};

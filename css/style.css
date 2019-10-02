@@ -1109,6 +1109,10 @@ main {
     cursor: pointer;
 }
 
+.services-button .button:first-child {
+    border: none;
+}
+
 .services-button .button:hover,
 .services-button .button:focus {
     background-color: #293449;
@@ -1125,6 +1129,7 @@ main {
 .services-content {
     box-sizing: border-box;
     width: 620px;
+    height: 285px;
     padding-right: 245px;
     background-image: url("../img/services-background-1.png");
     background-repeat: no-repeat;
